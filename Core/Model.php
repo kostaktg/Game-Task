@@ -1,5 +1,8 @@
 <?php
 
+namespace Core;
+use \PDO;
+
  class Model{
     protected $dbh, $stmt, $error;
     private static $Instance;
@@ -44,7 +47,9 @@
 	}
 
 
-
+public function get_error(){
+    return  $this->error;
+}
     // -------------  Query  ------------
  public function query($query){
     $this->stmt = $this->dbh->prepare($query);

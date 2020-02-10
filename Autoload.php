@@ -1,11 +1,11 @@
 <?php
-require_once 'Config.php';
-
 
 function __autoload($cname){
     $myfile = INCLUDE_DIR.$cname.'.php';
-    if ( file_exists($myfile) )
-        require_once $myfile;
+    
+    if ( file_exists(str_replace('\\','/', $myfile)) ){
+        require_once str_replace('\\','/',$myfile);
+    }
 
         unset($myfile);
 

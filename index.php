@@ -1,31 +1,22 @@
 <?php
 
+use Core\Init;
+
 //autoload
 require_once dirname(__FILE__).'/Config.php';
-
-
-// includes
-require_once INCLUDE_DIR.'/includes/Template.php';
-require_once INCLUDE_DIR.'/includes/Router.php';
-require_once INCLUDE_DIR.'/includes/Init.php';
-require_once INCLUDE_DIR.'/includes/Controller.php';
-require_once INCLUDE_DIR.'/includes/Model.php';
-
+require_once dirname(__FILE__).'/Autoload.php';
 
 
 //controllers
-require_once INCLUDE_DIR.'/controllers/homeController.php';
-require_once INCLUDE_DIR.'/controllers/usersController.php';
-require_once INCLUDE_DIR.'/controllers/boxController.php';
+require_once INCLUDE_DIR.'App/Controllers/HomeController.php';
 
 //Models
-require_once INCLUDE_DIR.'/models/Home.php';
-require_once INCLUDE_DIR.'/models/Box.php';
+//Helpers
+require_once INCLUDE_DIR.'App/Helpers/JsonHelper.php';
+require_once INCLUDE_DIR.'App/Helpers/GameHelper.php';
+
 
 //  --------- INDEX LOAD CONTROLLER  -------------
-$init = Init::getInstance();
-$controller = $init->createController();
 
-if($controller){
-    $controller->executeAction();
-}
+$init = new Init();
+

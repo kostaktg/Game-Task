@@ -1,5 +1,8 @@
 <?php
 
+namespace Core;
+use \Smarty;
+
 require_once dirname(__fILE__).'/smarty/Smarty.class.php';
 require_once 'Config.php';
 
